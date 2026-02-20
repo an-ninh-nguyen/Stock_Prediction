@@ -60,7 +60,7 @@ MODEL_INFO = {
         "explainer": 'explainer.shap',
         "pipeline": 'finalized_model.tar.gz',
         "keys": ["MSFT", "AMZN", "AAPL", "DEXCHUS", "SP500", "VIXCLS", "NASDAQCOM"],
-        "inputs": [{"name": k, "type": "number", "min": -1.0, "max": 1.0, "default": 0.0, "step": 0.01} for k in ["AAPL", "AMZN", "DEXJPUS", "DEXUCHUS", "SP500", "VIXCLS", "NASDAQCOM"]]
+        "inputs": [{"name": k, "type": "number", "min": -1.0, "max": 1.0, "default": 0.0, "step": 0.01} for k in ["AAPL", "AMZN", "DEXJPUS", "DEXCHUS", "SP500", "VIXCLS", "NASDAQCOM"]]
 }
 
 def load_pipeline(_session, bucket, key):
@@ -151,6 +151,7 @@ if submitted:
         display_explanation(input_df,session, aws_bucket)
     else:
         st.error(res)
+
 
 
 
