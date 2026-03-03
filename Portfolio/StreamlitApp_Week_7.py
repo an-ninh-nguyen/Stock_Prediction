@@ -58,7 +58,7 @@ df_features = extract_features()
 MODEL_INFO = {
         "endpoint": aws_endpoint,
         "explainer": 'explainer_pair.shap',
-        "pipeline": 'finalized_model.tar.gz',
+        "pipeline": 'finalized_pair_model.tar.gz',
         "keys": ["MPWR", "AAPL"],
         "inputs": [{"name": k, "type": "number", "min": 0.0, "default": 0.0, "step": 10.0} for k in ["MPWR", "AAPL"]]
 }
@@ -123,7 +123,7 @@ def display_explanation(input_df, session, aws_bucket):
 
     st.subheader("🔍 Decision Transparency (SHAP)")
     fig, ax = plt.subplots(figsize=(10, 4))
-    shap.plots.waterfall(shap_values[0], max_display=10)
+    shap.plots.waterfall(shap_values[0, :, 0])
     st.pyplot(fig)
     # top feature   
     #top_feature = shap_values[0].feature_names[0]
