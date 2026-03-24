@@ -60,7 +60,7 @@ MODEL_INFO = {
         "explainer": 'explainer_pair.shap',
         "pipeline": 'finalized_pair_model.tar.gz',
         "keys": ["GOOG", "ADI"],
-        "inputs": [{"name": k, "type": "number", "min": 0.0, "default": 0.0, "step": 10.0} for k in ["MPWR", "AAPL"]]
+        "inputs": [{"name": k, "type": "number", "min": 0.0, "default": 0.0, "step": 10.0} for k in ["GOOG", "ADI"]]
 }
 
 def load_pipeline(_session, bucket, key):
