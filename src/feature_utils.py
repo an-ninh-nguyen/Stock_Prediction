@@ -30,10 +30,10 @@ def extract_features():
     #idx_data = web.DataReader(idx_tickers, 'fred', start=START_DATE, end=END_DATE)
 
     #Y = np.log(stk_data.loc[:, ('Adj Close', 'MSFT')]).diff(return_period).shift(-return_period)
-    Y = stk_data.loc[:, ('Adj Close', 'AAPL')]
+    Y = stk_data.loc[:, ('Adj Close', 'GOOG')]
     Y.name = 'AAPL'
 
-    X = stk_data.loc[:, ('Adj Close', 'MPWR')]
+    X = stk_data.loc[:, ('Adj Close', 'ADI')]
     X.name = 'MPWR'
     
     #X1 = np.log(stk_data.loc[:, ('Adj Close', ('AAPL', 'AMZN'))]).diff(return_period)
