@@ -20,7 +20,7 @@ def extract_features():
     
     START_DATE = (datetime.date.today() - datetime.timedelta(days=365)).strftime("%Y-%m-%d")
     END_DATE = datetime.date.today().strftime("%Y-%m-%d")
-    stk_tickers = ['MPWR', 'AAPL']
+    stk_tickers = ['GOOG', 'ADI']
     #ccy_tickers = ['DEXJPUS', 'DEXCHUS']
     #idx_tickers = ['SP500', 'NASDAQCOM', 'VIXCLS']
     
