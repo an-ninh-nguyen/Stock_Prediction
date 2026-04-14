@@ -106,7 +106,7 @@ def call_model_api(input_df):
     )
 
     try:
-        # For regression
+        # For regression (pick one, comment the other one)
         # raw_pred = predictor.predict(input_df)
         # pred_val = pd.DataFrame(raw_pred).values[-1][0]
         # return round(float(pred_val), 4), 200
@@ -132,11 +132,13 @@ def display_explanation(input_df, session, aws_bucket):
     
     st.subheader("🔍 Decision Transparency (SHAP)")
     fig, ax = plt.subplots(figsize=(10, 4))
-    #shap.plots.waterfall(shap_values[0], max_display=10)
-    shap.plots.waterfall(shap_values[0, :, 0])
+    #shap.plots.waterfall(shap_values[0], max_display=10) #regression
+    shap.plots.waterfall(shap_values[0, :, 0]) #classification
     st.pyplot(fig)
     # top feature 
+    #regression
     # top_feature = pd.Series(shap_values[0].values, index=shap_values[0].feature_names).abs().idxmax()
+    #classification
     top_feature = pd.Series(shap_values[0, :, 0].values, index=shap_values[0, :, 0].feature_names).abs().idxmax()
     st.info(f"**Business Insight:** The most influential factor in this decision was **{top_feature}**.")
 
