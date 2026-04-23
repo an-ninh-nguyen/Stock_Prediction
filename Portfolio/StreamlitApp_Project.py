@@ -135,7 +135,8 @@ def display_explanation(input_df, session, aws_bucket):
     input_df=pd.DataFrame(input_df)
     input_df_transformed = preprocessing_pipeline.transform(input_df)
     #feature_names = best_pipeline[:-3].get_feature_names_out()
-    feature_names = list(dataset.columns[1:])
+    dataset_1 = dataset.iloc[:, 1:]
+    feature_names = dataset_1.columns[1:]
     selector = best_pipeline.named_steps['selector']
     selected_features = feature_names[selector.get_support()]
     input_df_transformed = pd.DataFrame(input_df_transformed, columns=selected_features)
